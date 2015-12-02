@@ -7,7 +7,7 @@
  * @license   https://github.com/zendframework/zend-expressive/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Expressive\Exception;
+namespace Zend\Expressive\Template\Exception;
 
 use DomainException;
 
