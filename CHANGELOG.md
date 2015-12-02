@@ -20,11 +20,13 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 1.0.1 - TBD
+## 1.0.1 - 2015-12-02
 
 ### Added
 
-- Nothing.
+- [#1](https://github.com/zendframework/zend-expressive-template/pull/1) imports
+  the `RenderingException` class from zend-expressive, pushing it into the
+  `Zend\Expressive\Template\Exception` namespace.
 
 ### Deprecated
 
