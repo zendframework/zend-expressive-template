@@ -9,7 +9,6 @@
 
 namespace Zend\Expressive\Template;
 
-use Traversable;
 use Zend\Stdlib\ArrayUtils;
 
 trait DefaultParamsTrait
