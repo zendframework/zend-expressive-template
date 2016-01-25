@@ -9,9 +9,6 @@
 
 namespace Zend\Expressive\Template;
 
-use Traversable;
-use Zend\Stdlib\ArrayUtils;
-
 trait DefaultParamsTrait
 {
     /**
@@ -78,8 +75,38 @@ trait DefaultParamsTrait
             ? $this->defaultParams[$template]
             : [];
 
-        $defaults = ArrayUtils::merge($globalDefaults, $templateDefaults);
+        $defaults = $this->merge($globalDefaults, $templateDefaults);
 
-        return ArrayUtils::merge($defaults, $params);
+        return $this->merge($defaults, $params);
+    }
+
+    /**
+     * Copy paste from https://github.com/zendframework/zend-stdlib/commit/26fcc32a358aa08de35625736095cb2fdaced090
+     * to keep compatibility with previous version
+     *
+     * @link https://github.com/zendframework/zend-servicemanager/pull/68
+     */
+    private function merge(array $a, array $b)
+    {
+        foreach ($b as $key => $value) {
+            if ($value instanceof MergeReplaceKeyInterface) {
+                $a[$key] = $value->getData();
+            } elseif (isset($a[$key]) || array_key_exists($key, $a)) {
+                if ($value instanceof MergeRemoveKey) {
+                    unset($a[$key]);
+                } elseif (is_int($key)) {
+                    $a[] = $value;
+                } elseif (is_array($value) && is_array($a[$key])) {
+                    $a[$key] = $this->merge($a[$key], $value);
+                } else {
+                    $a[$key] = $value;
+                }
+            } else {
+                if (!$value instanceof MergeRemoveKey) {
+                    $a[$key] = $value;
+                }
+            }
+        }
+        return $a;
     }
 }
