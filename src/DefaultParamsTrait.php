@@ -9,6 +9,9 @@
 
 namespace Zend\Expressive\Template;
 
+/**
+ * Trait for providing default template parameters.
+ */
 trait DefaultParamsTrait
 {
     /**
@@ -81,31 +84,28 @@ trait DefaultParamsTrait
     }
 
     /**
-     * Copy paste from https://github.com/zendframework/zend-stdlib/commit/26fcc32a358aa08de35625736095cb2fdaced090
-     * to keep compatibility with previous version
+     * Merge array values recursively.
      *
-     * @link https://github.com/zendframework/zend-servicemanager/pull/68
+     * Adapted from https://github.com/zendframework/zend-stdlib/commit/26fcc32a358aa08de35625736095cb2fdaced090
+     * but removes MergeRemoveKey/MergeReplaceKey functionality, as not
+     * relevant to this domain.
      */
     private function merge(array $a, array $b)
     {
         foreach ($b as $key => $value) {
-            if ($value instanceof MergeReplaceKeyInterface) {
-                $a[$key] = $value->getData();
-            } elseif (isset($a[$key]) || array_key_exists($key, $a)) {
-                if ($value instanceof MergeRemoveKey) {
-                    unset($a[$key]);
-                } elseif (is_int($key)) {
+            if (isset($a[$key]) || array_key_exists($key, $a)) {
+                if (is_int($key)) {
                     $a[] = $value;
-                } elseif (is_array($value) && is_array($a[$key])) {
-                    $a[$key] = $this->merge($a[$key], $value);
-                } else {
-                    $a[$key] = $value;
+                    continue;
                 }
-            } else {
-                if (!$value instanceof MergeRemoveKey) {
-                    $a[$key] = $value;
+
+                if (is_array($value) && is_array($a[$key])) {
+                    $a[$key] = $this->merge($a[$key], $value);
+                    continue;
                 }
             }
+
+            $a[$key] = $value;
         }
         return $a;
     }
