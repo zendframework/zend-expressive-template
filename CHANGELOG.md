@@ -14,8 +14,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- #3 removes the dependency on zend-stdlib by inlining the ArrayUtils::merge() routine as a private method of 
-Zend\Expressive\Template\DefaultParamsTrait.
+- [#4](https://github.com/zendframework/zend-expressive-template/pull/4) removes
+  the dependency on zend-stdlib by inlining the `ArrayUtils::merge(`) routine as a
+  private method of `Zend\Expressive\Template\DefaultParamsTrait`.
 
 ### Fixed
 
