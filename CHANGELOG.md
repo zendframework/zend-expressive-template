@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 1.0.3 - TBD
+## 1.0.3 - 2016-01-28
 
 ### Added
 
@@ -36,7 +36,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#5](https://github.com/zendframework/zend-expressive-template/pull/5)
+  actually removes zend-stdlib from the dependency list, which was intended with
+  [#4](https://github.com/zendframework/zend-expressive-template/pull/4).
 
 ## 1.0.2 - 2016-01-25
 
