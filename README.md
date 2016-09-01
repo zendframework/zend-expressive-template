@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-expressive-template.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-expressive-template)
 
-Template subcomponent for [Expressive](https://github.com/zendframework/zend-expressive].
+Template subcomponent for [Expressive](https://github.com/zendframework/zend-expressive).
 
 This package provides the following classes, interfaces, and traits:
 
@@ -37,4 +37,4 @@ We currently support and provide the following routing integrations:
 
 ## Documentation
 
-Expressive provides [template documentation](http://zend-expressive.readthedocs.org/en/latest/template/intro/).
+Expressive provides [template documentation](https://zendframework.github.io/zend-expressive/features/template/intro/).
