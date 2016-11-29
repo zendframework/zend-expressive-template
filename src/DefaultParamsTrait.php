@@ -78,35 +78,6 @@ trait DefaultParamsTrait
             ? $this->defaultParams[$template]
             : [];
 
-        $defaults = $this->merge($globalDefaults, $templateDefaults);
-
-        return $this->merge($defaults, $params);
-    }
-
-    /**
-     * Merge array values recursively.
-     *
-     * Adapted from https://github.com/zendframework/zend-stdlib/commit/26fcc32a358aa08de35625736095cb2fdaced090
-     * but removes MergeRemoveKey/MergeReplaceKey functionality, as not
-     * relevant to this domain.
-     */
-    private function merge(array $a, array $b)
-    {
-        foreach ($b as $key => $value) {
-            if (isset($a[$key]) || array_key_exists($key, $a)) {
-                if (is_int($key)) {
-                    $a[] = $value;
-                    continue;
-                }
-
-                if (is_array($value) && is_array($a[$key])) {
-                    $a[$key] = $this->merge($a[$key], $value);
-                    continue;
-                }
-            }
-
-            $a[$key] = $value;
-        }
-        return $a;
+        return array_replace_recursive($globalDefaults, $templateDefaults, $params);
     }
 }
