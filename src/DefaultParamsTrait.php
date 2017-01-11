@@ -1,10 +1,8 @@
 <?php
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @see       https://github.com/zendframework/zend-expressive for the canonical source repository
- * @copyright Copyright (c) 2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-expressive/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/zendframework/zend-expressive-template for the canonical source repository
+ * @copyright Copyright (c) 2015-2017 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   https://github.com/zendframework/zend-expressive-template/blob/master/LICENSE.md New BSD License
  */
 
 namespace Zend\Expressive\Template;
@@ -78,35 +76,6 @@ trait DefaultParamsTrait
             ? $this->defaultParams[$template]
             : [];
 
-        $defaults = $this->merge($globalDefaults, $templateDefaults);
-
-        return $this->merge($defaults, $params);
-    }
-
-    /**
-     * Merge array values recursively.
-     *
-     * Adapted from https://github.com/zendframework/zend-stdlib/commit/26fcc32a358aa08de35625736095cb2fdaced090
-     * but removes MergeRemoveKey/MergeReplaceKey functionality, as not
-     * relevant to this domain.
-     */
-    private function merge(array $a, array $b)
-    {
-        foreach ($b as $key => $value) {
-            if (isset($a[$key]) || array_key_exists($key, $a)) {
-                if (is_int($key)) {
-                    $a[] = $value;
-                    continue;
-                }
-
-                if (is_array($value) && is_array($a[$key])) {
-                    $a[$key] = $this->merge($a[$key], $value);
-                    continue;
-                }
-            }
-
-            $a[$key] = $value;
-        }
-        return $a;
+        return array_replace_recursive($globalDefaults, $templateDefaults, $params);
     }
 }
