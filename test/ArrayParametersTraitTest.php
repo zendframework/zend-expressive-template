@@ -13,6 +13,9 @@ use Zend\Expressive\Template\Exception\InvalidArgumentException;
 
 class ArrayParametersTraitTest extends TestCase
 {
+    /** @var TestAsset\ArrayParameters */
+    private $subject;
+
     public function setUp()
     {
         $this->subject = new TestAsset\ArrayParameters();
