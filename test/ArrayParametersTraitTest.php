@@ -8,8 +8,7 @@
 namespace ZendTest\Expressive\Template;
 
 use ArrayIterator;
-use PHPUnit_Framework_TestCase as TestCase;
-use stdClass;
+use PHPUnit\Framework\TestCase;
 use Zend\Expressive\Template\Exception\InvalidArgumentException;
 
 class ArrayParametersTraitTest extends TestCase
@@ -72,7 +71,9 @@ class ArrayParametersTraitTest extends TestCase
      */
     public function testNonNullScalarsRaiseAnException($scalar, $expectedString)
     {
-        $this->setExpectedException(InvalidArgumentException::class, $expectedString);
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage($expectedString);
+
         $this->subject->normalize($scalar);
     }
 }

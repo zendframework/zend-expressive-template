@@ -7,7 +7,7 @@
 
 namespace ZendTest\Expressive\Template;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use ZendTest\Expressive\Template\TestAsset\ArrayParameters;
 use ZendTest\Expressive\Template\TestAsset\DefaultParameters;
