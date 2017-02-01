@@ -37,6 +37,7 @@ interface TemplateRendererInterface
      *
      * @param string $path
      * @param string $namespace
+     * @return void
      */
     public function addPath($path, $namespace = null);
 
@@ -65,6 +66,7 @@ interface TemplateRendererInterface
      *     use TEMPLATE_ALL to apply to all templates.
      * @param string $param Param name.
      * @param mixed $value
+     * @return void
      */
     public function addDefaultParam($templateName, $param, $value);
 }
