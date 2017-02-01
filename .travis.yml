@@ -34,7 +34,7 @@ matrix:
         - CS_CHECK=true
     - php: 7
       env:
-        - DEPS=lates
+        - DEPS=latest
     - php: 7.1
       env:
         - DEPS=lowest
