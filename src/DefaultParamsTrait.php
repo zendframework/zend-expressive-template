@@ -35,6 +35,8 @@ trait DefaultParamsTrait
      *     use TEMPLATE_ALL to apply to all templates.
      * @param string $param Param name.
      * @param mixed $value
+     * @return void
+     * @throws Exception\InvalidArgumentException
      */
     public function addDefaultParam($templateName, $param, $value)
     {
