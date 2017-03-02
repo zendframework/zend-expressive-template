@@ -32,9 +32,9 @@
       }
     },
     "suggest": {
-        "zendframework/zend-expressive-platesrenderer": "^1.2 to use the Plates template renderer",
-        "zendframework/zend-expressive-twigrenderer": "^1.2.1 to use the Twig template renderer",
-        "zendframework/zend-expressive-zendviewrenderer": "^1.2.1 to use the zend-view PhpRenderer template renderer"
+        "zendframework/zend-expressive-platesrenderer": "^1.2.1 to use the Plates template renderer",
+        "zendframework/zend-expressive-twigrenderer": "^1.3 to use the Twig template renderer",
+        "zendframework/zend-expressive-zendviewrenderer": "^1.3 to use the zend-view PhpRenderer template renderer"
     },
     "scripts": {
         "check": [
