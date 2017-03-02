@@ -1,18 +1,21 @@
 <?php
 /**
- * @license   http://opensource.org/licenses/BSD-3-Clause BSD-3-Clause
- * @copyright Copyright (c) 2015 Zend Technologies USA Inc. (http://www.zend.com)
+ * @see       https://github.com/zendframework/zend-expressive-template for the canonical source repository
+ * @copyright Copyright (c) 2015-2017 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   https://github.com/zendframework/zend-expressive-template/blob/master/LICENSE.md New BSD License
  */
 
 namespace ZendTest\Expressive\Template;
 
 use ArrayIterator;
-use PHPUnit_Framework_TestCase as TestCase;
-use stdClass;
+use PHPUnit\Framework\TestCase;
 use Zend\Expressive\Template\Exception\InvalidArgumentException;
 
 class ArrayParametersTraitTest extends TestCase
 {
+    /** @var TestAsset\ArrayParameters */
+    private $subject;
+
     public function setUp()
     {
         $this->subject = new TestAsset\ArrayParameters();
@@ -68,10 +71,15 @@ class ArrayParametersTraitTest extends TestCase
 
     /**
      * @dataProvider nonNullScalarParameters
+     *
+     * @param mixed $scalar
+     * @param string $expectedString
      */
     public function testNonNullScalarsRaiseAnException($scalar, $expectedString)
     {
-        $this->setExpectedException(InvalidArgumentException::class, $expectedString);
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage($expectedString);
+
         $this->subject->normalize($scalar);
     }
 }
