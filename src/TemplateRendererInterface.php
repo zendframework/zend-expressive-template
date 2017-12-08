@@ -17,7 +17,7 @@ interface TemplateRendererInterface
     /**
      * @const string Value indicating all templates; used with `addDefaultParam()`.
      */
-    const TEMPLATE_ALL = '*';
+    public const TEMPLATE_ALL = '*';
 
     /**
      * Render a template, optionally with parameters.
