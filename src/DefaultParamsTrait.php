@@ -37,23 +37,16 @@ trait DefaultParamsTrait
      *     use TEMPLATE_ALL to apply to all templates.
      * @param string $param Param name.
      * @param mixed $value
-     * @return void
      * @throws Exception\InvalidArgumentException
      */
-    public function addDefaultParam($templateName, $param, $value)
+    public function addDefaultParam(string $templateName, string $param, $value) : void
     {
-        if (! is_string($templateName) || empty($templateName)) {
-            throw new Exception\InvalidArgumentException(sprintf(
-                '$templateName must be a non-empty string; received %s',
-                (is_object($templateName) ? get_class($templateName) : gettype($templateName))
-            ));
+        if (! $templateName) {
+            throw new Exception\InvalidArgumentException('$templateName must be a non-empty string');
         }
 
-        if (! is_string($param) || empty($param)) {
-            throw new Exception\InvalidArgumentException(sprintf(
-                '$param must be a non-empty string; received %s',
-                (is_object($param) ? get_class($param) : gettype($param))
-            ));
+        if (! $param) {
+            throw new Exception\InvalidArgumentException('$param must be a non-empty string');
         }
 
         if (! isset($this->defaultParams[$templateName])) {
@@ -65,20 +58,11 @@ trait DefaultParamsTrait
 
     /**
      * Returns merged global, template-specific and given params
-     *
-     * @param string $template
-     * @param array $params
-     * @return array
      */
-    private function mergeParams($template, array $params)
+    private function mergeParams(string $template, array $params) : array
     {
-        $globalDefaults = isset($this->defaultParams[TemplateRendererInterface::TEMPLATE_ALL])
-            ? $this->defaultParams[TemplateRendererInterface::TEMPLATE_ALL]
-            : [];
-
-        $templateDefaults = isset($this->defaultParams[$template])
-            ? $this->defaultParams[$template]
-            : [];
+        $globalDefaults = $this->defaultParams[TemplateRendererInterface::TEMPLATE_ALL] ?? [];
+        $templateDefaults = $this->defaultParams[$template] ?? [];
 
         return array_replace_recursive($globalDefaults, $templateDefaults, $params);
     }

@@ -27,10 +27,9 @@ trait ArrayParametersTrait
      * - scalar values result in an exception
      *
      * @param mixed $params
-     * @return array
      * @throws Exception\InvalidArgumentException for non-array, non-object parameters.
      */
-    private function normalizeParams($params)
+    private function normalizeParams($params) : array
     {
         if (null === $params) {
             return [];

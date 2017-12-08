@@ -21,13 +21,7 @@ class TemplatePath
      */
     protected $namespace;
 
-    /**
-     * Constructor
-     *
-     * @param string $path
-     * @param null|string $namespace
-     */
-    public function __construct($path, $namespace = null)
+    public function __construct(string $path, string $namespace = null)
     {
         $this->path      = $path;
         $this->namespace = $namespace;
@@ -35,30 +29,24 @@ class TemplatePath
 
     /**
      * Casts to string by returning the path only.
-     *
-     * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return $this->path;
     }
 
     /**
      * Get the namespace
-     *
-     * @return null|string
      */
-    public function getNamespace()
+    public function getNamespace() : ?string
     {
         return $this->namespace;
     }
 
     /**
      * Get the path
-     *
-     * @return string
      */
-    public function getPath()
+    public function getPath() : string
     {
         return $this->path;
     }
