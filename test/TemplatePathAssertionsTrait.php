@@ -27,7 +27,10 @@ trait TemplatePathAssertionsTrait
 
     public function assertTemplatePathNamespace($namespace, TemplatePath $templatePath, $message = null)
     {
-        $message = $message ?: sprintf('Failed to assert TemplatePath namespace matched %s', var_export($namespace, 1));
+        $message = $message ?: sprintf(
+            'Failed to assert TemplatePath namespace matched %s',
+            var_export($namespace, true)
+        );
         $this->assertEquals($namespace, $templatePath->getNamespace(), $message);
     }
 
