@@ -5,6 +5,8 @@
  * @license   https://github.com/zendframework/zend-expressive-template/blob/master/LICENSE.md New BSD License
  */
 
+declare(strict_types=1);
+
 namespace Zend\Expressive\Template;
 
 use Traversable;
@@ -25,10 +27,9 @@ trait ArrayParametersTrait
      * - scalar values result in an exception
      *
      * @param mixed $params
-     * @return array
      * @throws Exception\InvalidArgumentException for non-array, non-object parameters.
      */
-    private function normalizeParams($params)
+    private function normalizeParams($params) : array
     {
         if (null === $params) {
             return [];
