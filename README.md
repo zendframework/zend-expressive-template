@@ -1,7 +1,7 @@
 # zend-expressive-template
 
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-expressive-template.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-expressive-template)
-[![Coverage Status](https://coveralls.io/repos/zendframework/zend-expressive-template/badge.svg?branch=master)](https://coveralls.io/r/zendframework/zend-expressive-template?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-expressive-template/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-expressive-template?branch=master)
 
 Template subcomponent for [Expressive](https://github.com/zendframework/zend-expressive).
 
