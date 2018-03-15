@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.0.0alpha1 - 2018-02-06
+## 2.0.0 - 2018-03-15
 
 ### Added
 
@@ -18,42 +18,6 @@ All notable changes to this project will be documented in this file, in reverse 
   - `public function addPath(string $path, string $namespace = null) : void`
   - `public function getPaths() : array`
   - `public function addDefaultParam(string $templateName, string $param, $value) : void`
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
-## 1.1.0 - TBD
-
-### Added
-
-- Nothing.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
-## 1.0.5 - TBD
-
-### Added
-
-- Nothing.
 
 ### Deprecated
 
