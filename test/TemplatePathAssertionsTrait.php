@@ -5,9 +5,14 @@
  * @license   https://github.com/zendframework/zend-expressive-template/blob/master/LICENSE.md New BSD License
  */
 
+declare(strict_types=1);
+
 namespace ZendTest\Expressive\Template;
 
 use Zend\Expressive\Template\TemplatePath;
+
+use function sprintf;
+use function var_export;
 
 trait TemplatePathAssertionsTrait
 {
@@ -25,7 +30,10 @@ trait TemplatePathAssertionsTrait
 
     public function assertTemplatePathNamespace($namespace, TemplatePath $templatePath, $message = null)
     {
-        $message = $message ?: sprintf('Failed to assert TemplatePath namespace matched %s', var_export($namespace, 1));
+        $message = $message ?: sprintf(
+            'Failed to assert TemplatePath namespace matched %s',
+            var_export($namespace, true)
+        );
         $this->assertEquals($namespace, $templatePath->getNamespace(), $message);
     }
 

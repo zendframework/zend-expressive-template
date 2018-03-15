@@ -2,29 +2,22 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 1.1.0 - TBD
+## 2.0.0 - 2018-03-15
 
 ### Added
 
 - Nothing.
 
-### Deprecated
+### Changed
 
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
-## 1.0.5 - TBD
-
-### Added
-
-- Nothing.
+- [#17](https://github.com/zendframework/zend-expressive-template/pull/17)
+  updates the component to add return type hints and scalar type hints,
+  including nullable types and `void` return types. Notably, this affects the
+  `TemplateRendererInterface`, which updates its method signatures to read:
+  - `public function render(string $name, $params = []) : string`
+  - `public function addPath(string $path, string $namespace = null) : void`
+  - `public function getPaths() : array`
+  - `public function addDefaultParam(string $templateName, string $param, $value) : void`
 
 ### Deprecated
 
