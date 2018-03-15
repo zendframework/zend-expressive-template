@@ -5,9 +5,12 @@
  * @license   https://github.com/zendframework/zend-expressive-template/blob/master/LICENSE.md New BSD License
  */
 
+declare(strict_types=1);
+
 namespace ZendTest\Expressive\Template;
 
 use PHPUnit\Framework\TestCase;
+use Zend\Expressive\Template\Exception\InvalidArgumentException;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use ZendTest\Expressive\Template\TestAsset\ArrayParameters;
 use ZendTest\Expressive\Template\TestAsset\DefaultParameters;
@@ -81,5 +84,19 @@ class DefaultParamsTraitTest extends TestCase
         $params = $this->defaultParams->mergeParameters('template', $params);
 
         $this->assertEquals($expected, $params);
+    }
+
+    public function testExceptionOnAddDefaultParamWhenEmptyTemplateName()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('$templateName must be a non-empty string');
+        $this->defaultParams->addDefaultParam('', 'name', 'value');
+    }
+
+    public function testExceptionOnAddDefaultParamWhenEmptyParamName()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('$param must be a non-empty string');
+        $this->defaultParams->addDefaultParam('template', '', 'value');
     }
 }
