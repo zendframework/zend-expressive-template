@@ -11,6 +11,9 @@ namespace ZendTest\Expressive\Template;
 
 use Zend\Expressive\Template\TemplatePath;
 
+use function sprintf;
+use function var_export;
+
 trait TemplatePathAssertionsTrait
 {
     public function assertTemplatePath($path, TemplatePath $templatePath, $message = null)

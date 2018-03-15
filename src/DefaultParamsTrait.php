@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Zend\Expressive\Template;
 
+use function array_replace_recursive;
+
 /**
  * Trait for providing default template parameters.
  */
