@@ -2,7 +2,7 @@
 
 > ## Repository abandoned 2019-12-31
 >
-> This repository has moved to mezzio/mezzio-template.
+> This repository has moved to [mezzio/mezzio-template](https://github.com/mezzio/mezzio-template).
 
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-expressive-template.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-expressive-template)
 [![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-expressive-template/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-expressive-template?branch=master)
